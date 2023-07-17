@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "noovies-challenge",
+    "slug": "noovies-challenge",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "noovies-challenge"
+}
