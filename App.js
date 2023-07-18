@@ -1,11 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useEffect, useState } from "react";
-import { Text, View } from "react-native";
 import { Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+import Tabs from "./navigation/Tabs";
+import { NavigationContainer } from "@react-navigation/native";
 
 const loadFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
 const loadImages = (images) =>
@@ -23,7 +23,11 @@ export default function App() {
   useEffect(() => {
     async function prepare() {
       try {
-        const fonts = loadFonts([Ionicons.font]);
+        const fonts = loadFonts([
+          Ionicons.font,
+          FontAwesome.font,
+          FontAwesome5.font,
+        ]);
 
         const images = loadImages([require("./assets/crypto.png")]);
 
@@ -49,23 +53,8 @@ export default function App() {
   }
 
   return (
-    <View
-      onLayout={onLayoutRootView}
-      style={{
-        backgroundColor: "white",
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>noovies challenge</Text>
-      <Ionicons name="logo-react" size={24} color="black" />
-      <Image
-        source={require("./assets/crypto.png")}
-        resizeMode="contain"
-        style={{ width: "10%", height: "10%" }}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer onLayout={onLayoutRootView}>
+      <Tabs />
+    </NavigationContainer>
   );
 }
