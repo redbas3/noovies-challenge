@@ -4,8 +4,11 @@ import { Ionicons, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import Tabs from "./navigation/Tabs";
+import Root from "./navigation/Root";
 import { NavigationContainer } from "@react-navigation/native";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const loadFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
 const loadImages = (images) =>
@@ -53,8 +56,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer onLayout={onLayoutRootView}>
-      <Tabs />
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer onLayout={onLayoutRootView}>
+        <Root />
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 }

@@ -4,6 +4,7 @@ import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import Coins from "../screens/Coins";
 import Prices from "../screens/Prices";
 import News from "../screens/News";
+import colors from "../colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,16 +12,16 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={{
-        backgroundColor: "black",
+        backgroundColor: `${colors.backgroundColor}`,
       }}
       screenOptions={{
         unmountOnBlur: true,
         tabBarStyle: {
-          backgroundColor: "black",
+          backgroundColor: `${colors.backgroundColor}`,
         },
         tabBarActiveTintColor: "pink",
         headerStyle: {
-          backgroundColor: "black",
+          backgroundColor: `${colors.backgroundColor}`,
         },
         headerTitleStyle: {
           color: "pink",
@@ -30,6 +31,8 @@ const Tabs = () => {
           fontWeight: 600,
           marginTop: -5,
         },
+        headerShadowVisible: false,
+        headerTitleAlign: "center",
       }}
     >
       <Tab.Screen
