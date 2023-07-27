@@ -1,10 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import Coins from "../screens/Coins";
 import Prices from "../screens/Prices";
 import News from "../screens/News";
 import colors from "../colors";
+import Discover from "../screens/DIscover";
 
 const Tab = createBottomTabNavigator();
 
@@ -59,6 +60,15 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({ focused, color, size }) => {
             return <FontAwesome name="newspaper-o" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Discover"
+        component={Discover}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            return <Ionicons name="heart-outline" size={size} color={color} />;
           },
         }}
       />
